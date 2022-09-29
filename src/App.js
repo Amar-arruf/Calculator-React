@@ -1,5 +1,12 @@
+import Title from "./Component/Title/Title";
+import Wrapper from "./Component/Wrapper/Wrapper";
+
 function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <Wrapper>
+      <Title />
+    </Wrapper>
+  );
 }
 
 export default App;
