@@ -1,0 +1,71 @@
+.Container-Toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 21px;
+  box-sizing: border-box;
+  align-self: flex-start;
+}
+
+.Toggle {
+  background: hsl(223, 31%, 20%) !important;
+  height: 20px !important;
+}
+
+.Input .checkmark {
+  width: 19px !important;
+  height: 17px !important;
+}
+
+.Input .left.checked + .checkmark {
+  background-color: red !important;
+
+  background: red !important;
+  background: -moz-linear-gradient(top, red 0%, red 100%) !important;
+  background: -webkit-linear-gradient(top, red 0%, red 100%) !important;
+  background: -o-linear-gradient(top, red 0%, red 100%) !important;
+  background: -ms-linear-gradient(top, red 0%, red 100%) !important;
+  background: linear-gradient(to bottom, red 0%, red 100%) !important;
+}
+
+.Input .middle.checked + .checkmark {
+  background-color: orange !important;
+}
+
+.Input .right.checked + .checkmark {
+  background-color: hsl(176, 100%, 44%) !important;
+}
+
+.Box-Subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 3px;
+  gap: 12px;
+}
+
+/* input {
+  padding: 0;
+  height: 20px;
+  width: 20px;
+  background-color: hsl(6, 63%, 50%);
+  border-radius: 50%;
+  appearance: none;
+  opacity: 0;
+}
+
+input:hover {
+  cursor: pointer;
+}
+
+.tri-state-toggle {
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: hsl(223, 31%, 20%);
+  border-radius: 50px;
+}
+
+input:checked {
+  opacity: 1;
+} */
