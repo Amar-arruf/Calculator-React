@@ -1,9 +1,9 @@
 import "./screen.css";
 
-const Screen = () => {
+const Screen = (props) => {
   return (
     <div className="box-Container-Screen">
-      <p>399,981</p>
+      <p>{props.value}</p>
     </div>
   );
 };
