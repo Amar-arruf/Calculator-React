@@ -87,7 +87,7 @@ function App() {
           ? a + b
           : sign === "-"
           ? a - b
-          : sign === "X"
+          : sign === "x"
           ? a * b
           : a / b;
 
@@ -129,7 +129,7 @@ function App() {
                   ? resetClickHandler
                   : btn === "DEL"
                   ? delClickHandler
-                  : btn === "/" || btn === "+" || btn === "-" || btn === "X"
+                  : btn === "/" || btn === "+" || btn === "-" || btn === "x"
                   ? signClickHandler
                   : btn === "="
                   ? equalsClickHandler
