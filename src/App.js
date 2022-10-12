@@ -1,9 +1,15 @@
 import { useState } from "react";
+import "./App.css";
+import Toggled from "./Component/Toggle/Toggle";
 import Botton from "./Component/Botton/Botton";
 import BottonBox from "./Component/BottonBox/BottonBox";
 import Screen from "./Component/Screen/Screen";
-import Title from "./Component/Title/Title";
+import TitleWrapper from "./Component/Title/Title";
 import Wrapper from "./Component/Wrapper/Wrapper";
+
+import { ThemeProvider } from "styled-components";
+import { darkBlueTheme, lightTheme, veryDarkViolet } from "./style/theme";
+import { GlobalStyles } from "./style/global";
 
 const btnValues = [
   [7, 8, 9, "DEL"],
@@ -13,12 +19,36 @@ const btnValues = [
   ["RESET", "="],
 ];
 
+let initialData = {
+  left: true,
+  right: false,
+  middle: false,
+};
+
 function App() {
   let [calc, setCalc] = useState({
     sign: "",
     num: 0,
     res: 0,
   });
+  const [theme, setTheme] = useState("veryDarkBlue");
+  const [data, setData] = useState(initialData);
+
+  const handleChange = (event) => {
+    switch (event) {
+      case "left":
+        setTheme("veryDarkBlue");
+        return setData({ left: true, right: false, middle: false });
+      case "middle":
+        setTheme("light");
+        return setData({ left: false, right: false, middle: true });
+      case "right":
+        setTheme("veryDarkViolet");
+        return setData({ left: false, right: true, middle: false });
+      default:
+        return event;
+    }
+  };
 
   const numClickHandler = (e) => {
     e.preventDefault();
@@ -104,42 +134,61 @@ function App() {
   };
 
   return (
-    <Wrapper>
-      <Title />
-      <Screen value={calc.num ? calc.num : calc.res} />
-      <BottonBox>
-        {btnValues.flat().map((btn, i) => {
-          return (
-            <Botton
-              key={i}
-              className={
-                btn === "="
-                  ? "equals"
-                  : btn === "DEL"
-                  ? "remove"
-                  : btn === "RESET"
-                  ? "remove span"
-                  : ""
-              }
-              value={btn}
-              onClick={
-                btn === "."
-                  ? commaClickHandler
-                  : btn === "RESET"
-                  ? resetClickHandler
-                  : btn === "DEL"
-                  ? delClickHandler
-                  : btn === "/" || btn === "+" || btn === "-" || btn === "x"
-                  ? signClickHandler
-                  : btn === "="
-                  ? equalsClickHandler
-                  : numClickHandler
-              }
-            />
-          );
-        })}
-      </BottonBox>
-    </Wrapper>
+    <ThemeProvider
+      theme={
+        theme === "veryDarkBlue"
+          ? darkBlueTheme
+          : theme === "light"
+          ? lightTheme
+          : veryDarkViolet
+      }
+    >
+      <>
+        <GlobalStyles />
+        <Wrapper>
+          <TitleWrapper>
+            <p>calc</p>
+            <div className="box-Tuggle">
+              <p>theme</p>
+              <Toggled Checked={data} onchange={handleChange} />
+            </div>
+          </TitleWrapper>
+          <Screen value={calc.num ? calc.num : calc.res} />
+          <BottonBox>
+            {btnValues.flat().map((btn, i) => {
+              return (
+                <Botton
+                  key={i}
+                  className={
+                    btn === "="
+                      ? "equals"
+                      : btn === "DEL"
+                      ? "remove"
+                      : btn === "RESET"
+                      ? "remove span"
+                      : ""
+                  }
+                  value={btn}
+                  onClick={
+                    btn === "."
+                      ? commaClickHandler
+                      : btn === "RESET"
+                      ? resetClickHandler
+                      : btn === "DEL"
+                      ? delClickHandler
+                      : btn === "/" || btn === "+" || btn === "-" || btn === "x"
+                      ? signClickHandler
+                      : btn === "="
+                      ? equalsClickHandler
+                      : numClickHandler
+                  }
+                />
+              );
+            })}
+          </BottonBox>
+        </Wrapper>
+      </>
+    </ThemeProvider>
   );
 }
 

@@ -1,29 +1,7 @@
-import { useState } from "react";
-import "./toggle.css";
 import { Toggle } from "react-triple-toggle";
+import "./toggle.css";
 
-let initialState = {
-  left: true,
-  middle: false,
-  right: false,
-};
-
-const Toggled = () => {
-  let [isToggle, setIsToggled] = useState(initialState);
-
-  const handleChange = (e) => {
-    switch (e) {
-      case "left":
-        return setIsToggled({ left: true, middle: false, right: false });
-      case "middle":
-        return setIsToggled({ left: false, middle: true, right: false });
-      case "right":
-        return setIsToggled({ left: false, middle: false, right: true });
-      default:
-        return e;
-    }
-  };
-
+const Toggled = ({ Checked, onchange }) => {
   return (
     <div className="Container-Toggle">
       <div className="Box-Subtitle">
@@ -31,7 +9,7 @@ const Toggled = () => {
         <div>2</div>
         <div>3</div>
       </div>
-      <Toggle checked={isToggle} onchange={handleChange} />
+      <Toggle checked={Checked} onChange={onchange} />
     </div>
   );
 };

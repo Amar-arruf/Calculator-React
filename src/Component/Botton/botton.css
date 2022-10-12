@@ -4,15 +4,15 @@ button {
   font-weight: 700;
   padding: 10px;
   border: transparent;
-  color: hsl(225, 21%, 49%);
+  color: hsl(221, 14%, 31%);
   background-color: hsl(30, 25%, 89%);
-  box-shadow: 0 2px 0 0 hsl(28, 16%, 65%);
+  box-shadow: 0 3px 0 0 hsl(28, 16%, 65%);
   cursor: pointer;
 }
 
 button:hover {
   background-color: white;
-  box-shadow: 0 2px 0 0 hsl(30, 25%, 89%);
+  box-shadow: 0 3px 0 0 hsl(28, 16%, 65%);
 }
 
 .remove {
@@ -20,12 +20,12 @@ button:hover {
   font-weight: 700;
   color: white;
   background-color: hsl(225, 21%, 49%);
-  box-shadow: 0 2px 0 0 hsl(224, 28%, 35%);
+  box-shadow: 0 3px 0 0 hsl(224, 28%, 35%);
 }
 
 .remove:hover {
   background-color: hsl(225, 47%, 70%);
-  box-shadow: 0 2px 0 0 hsl(224, 28%, 35%);
+  box-shadow: 0 3px 0 0 hsl(224, 28%, 35%);
 }
 
 .span {
@@ -39,10 +39,25 @@ button:hover {
   font-size: 25px;
   color: white;
   background-color: hsl(6, 63%, 50%);
-  box-shadow: 0 2px 0 0 hsl(6, 70%, 34%);
+  box-shadow: 0 5px 0 0 hsl(6, 70%, 34%);
 }
 
 .equals:hover {
   background-color: hsl(6, 80%, 59%);
-  box-shadow: 0 2px 0 0 hsl(6, 70%, 34%);
+  box-shadow: 0 5px 0 0 hsl(6, 70%, 34%);
+}
+
+@media screen and (max-width: 375px) {
+  button {
+    border-radius: 5px;
+    font-size: 29px;
+  }
+  .remove,
+  .equals {
+    font-size: 15px;
+  }
+  .span,
+  .equals {
+    padding: 20px 0;
+  }
 }

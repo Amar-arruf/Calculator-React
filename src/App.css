@@ -1,0 +1,25 @@
+.box-Container > p {
+  font-size: 32px;
+  margin: 0;
+}
+
+.box-Tuggle {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.box-Tuggle > p {
+  margin-right: 20px;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 375px) {
+  .box-Container > p {
+    font-size: 25px;
+  }
+
+  .box-Tuggle {
+    font-size: 10px;
+  }
+}
