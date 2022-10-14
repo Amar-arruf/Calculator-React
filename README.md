@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+# Calculator - App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![gif  Images](assets/ezgif.com-gif-maker1.gif)
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This is a solution to the [Calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### The challenge
 
-### `npm test`
+Users should be able to:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- See the size of the elements adjust based on their device's screen size
+- Perform mathmatical operations like addition, subtraction, multiplication, and division
+- Adjust the color theme based on their preference
 
-### `npm run build`
+### Screenshot
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![](./assets/mobile1.png) ![](./assets/mobile%202.png) ![](./assets/mobile3.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Links
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Solution URL: [Gitub](https://github.com/Amar-arruf)
 
-### `npm run eject`
+## My process
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Built with
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [stateHook]()
+- [react-triple-toggle](https://www.npmjs.com/package/react-triple-toggle) -
+  third party packages
+- [React](https://reactjs.org/) - JS library
+- [Styled Components](https://styled-components.com/) - For styles
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### What I learned
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+in developing the Calculator-App I can learn new things including State Management , install third party packages , custom components in ReactJs Applications and last but not least it is very important switching themes using styled-components.
 
-## Learn More
+To see how you can add code snippets, see below:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+import { createGlobalStyle } from "styled-components";
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+export const GlobalStyles = createGlobalStyle`
+  body {
+    background-color: ${({ theme }) => theme.body};
+  }
+  .box-Container {
+    color: ${({ theme }) => theme.textSecondary} !important;
+  }
 
-### Code Splitting
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```js
+import { ThemeProvider } from "styled-components";
+import { darkBlueTheme, lightTheme, veryDarkViolet } from "./style/theme";
+import { GlobalStyles } from "./style/global";
+```
 
-### Analyzing the Bundle Size
+```js
+  return (
+    <ThemeProvider
+      theme={
+        theme === "veryDarkBlue"
+          ? darkBlueTheme
+          : theme === "light"
+          ? lightTheme
+          : veryDarkViolet
+      }
+    >
+      <>
+        <GlobalStyles />
+        <Wrapper>
+        ....
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```js
+import "./screen.css";
 
-### Making a Progressive Web App
+const Screen = (props) => {
+  return (
+    <div className="box-Container-Screen">
+      <p>{props.value}</p>
+    </div>
+  );
+};
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+export default Screen;
+```
 
-### Advanced Configuration
+### Continued development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Calculator - App** I want to continue focusing on in future projects. These could be concepts still not completely comfortable. maybe in the future I want refine my App and looking beautifull.
 
-### Deployment
+### Useful resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [Theme Provider](https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [Calculator in react](https://www.sitepoint.com/react-tutorial-build-calculator-app/) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
-### `npm run build` fails to minify
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Github - [Amar Ma'ruf](https://github.com/Amar-arruf)
+- Frontend Mentor - [@Amar-arruf](https://www.frontendmentor.io/profile/Amar-arruf)
+- Facebook - [Amar Arruf](https://www.facebook.com/amar.arruf.7/)
